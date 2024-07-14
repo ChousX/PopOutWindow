@@ -1,6 +1,14 @@
 pub use bevy::prelude::*;
 use bevy::{render::camera::RenderTarget, window::WindowRef};
 
+pub mod prelude {
+    pub use crate::{
+        PopOutPlugin,
+        PopOutEvent,
+        DespawnWindowEvent,
+    };
+}
+
 pub struct PopOutPlugin;
 impl Plugin for PopOutPlugin {
     fn build(&self, app: &mut App) {

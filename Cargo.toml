@@ -1,0 +1,16 @@
+[package]
+name = "PopOutWindow"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = { package = "bevy", version = "0.14.0" }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[features]
+default = ["bevy/dynamic_linking"]

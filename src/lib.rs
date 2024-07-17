@@ -30,7 +30,7 @@ pub struct PopOutEvent{
 }
 
 impl PopOutEvent{
-    pub fn new(add: Entity){
+    pub fn new(add: Entity) -> Self{
         Self{
             add,
             pos: Transform::default(),
@@ -64,7 +64,7 @@ fn spawn_pop_out_window(
         let window_id = commands
             .spawn((
                 Window {
-                    title,
+                    title: title.clone(),
                     ..default()
                 },
                 PopOutCamera,
@@ -73,7 +73,7 @@ fn spawn_pop_out_window(
         let camera_id = commands
             .spawn((
                 Camera2dBundle {
-                    transform: pos,
+                    transform: *pos,
                     camera: Camera {
                         target: RenderTarget::Window(WindowRef::Entity(window_id)),
                         ..default()
